@@ -54,3 +54,38 @@ body {
   height: 100%;
   width: 100%;
 }
+
+.slider-container .action-buttons button {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  z-index: 100;
+}
+
+button {
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 15px;
+  color: #aaa;
+}
+
+button:hover {
+  background-color: #222;
+}
+
+button:focus {
+  outline: none;
+}
+
+.slider-container .action-buttons .down-button {
+  transform: translateX(-100%);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.slider-container .action-buttons .up-button {
+  transform: translateY(-100%);
+  order-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
