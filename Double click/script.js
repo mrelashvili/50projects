@@ -4,6 +4,7 @@ const loveMe = document.querySelector('.loveMe');
 const times = document.getElementById('times');
 
 let clickTime = 0;
+let timesClicked = 0;
 
 loveMe.addEventListener('click', (e) => {
   if (clickTime === 0) {
@@ -38,5 +39,5 @@ function createHart(e) {
   loveMe.appendChild(heart);
 
   e.target.appendChild(heart);
-  
+  times.innerHTML = ++timesClicked;
 }
