@@ -20,7 +20,6 @@ body {
 .user-form {
   width: 100%;
   max-width: 700px;
-  margin-bottom: 2rem;
 }
 
 .user-form input {
@@ -31,10 +30,11 @@ body {
   border-radius: 10px;
   color: #fff;
   padding: 1rem;
-  margin-bototom: 2rem;
-  font-size: 1rem;
+  margin-bottom: 2rem;
   font-family: inherit;
-  box-shadow: 0 5px 10px rgba(154,160,185, 0.06), 0 15px 40px rgba(0,0,0, .1)
+  font-size: 1rem;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
 .user-form input::placeholder {
@@ -49,10 +49,11 @@ body {
   max-width: 800px;
   background-color: #4c2885;
   border-radius: 20px;
-  box-shadow: 0 5px 10px rgba(154,160,185, 0.06), 0 15px 40px rgba(0,0,0, .1);
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(0, 0, 0, 0.1);
   display: flex;
   padding: 3rem;
-  margin: 0 1rem;
+  margin: 0 1.5rem;
 }
 
 .avatar {
@@ -67,9 +68,13 @@ body {
   margin-left: 2rem;
 }
 
+.user-info h2 {
+  margin-top: 0;
+}
+
 .user-info ul {
-  display: flex;
   list-style-type: none;
+  display: flex;
   justify-content: space-between;
   padding: 0;
   max-width: 400px;
@@ -78,14 +83,23 @@ body {
 .user-info ul li {
   display: flex;
   align-items: center;
+  margin-left: 1rem;
+}
+
+.user-info ul li:first-child {
+  margin: 0;
 }
 
 .user-info ul li strong {
   font-size: 0.9rem;
-  margin-right: 0.5rem;
+  margin-left:0.5rem;
 }
 
-.repos {
+.user-info ul li strong:first-child {
+  margin-left: 0;
+}
+
+.repo {
   text-decoration: none;
   color: #fff;
   background-color: #212a72;
@@ -100,7 +114,6 @@ body {
   .card {
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 
   .user-form {
