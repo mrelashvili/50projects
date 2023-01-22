@@ -20,6 +20,8 @@ function createUserCard(user) {
           <li><strong>${user.following}</strong> Following</li>
           <li><strong>${user.public_repos}</strong> Repos</li>
         </ul>
+
+        <div id="repos"></div>
       </div>
     </div>
   `
@@ -27,16 +29,35 @@ function createUserCard(user) {
   main.innerHTML = cardHTML;
 }
 
-const getUser = async (username) => {
+async function getUser (username){
   try {
   const { data } = await axios.get(APIURL + username);
   createUserCard(data);
-  console.log( data );
+  getRepos(username)
   } catch (err) {
     if(err.response.status == 404) {
       createErrorCard('No user found!')
     }
   }
+}
+
+async function getRepos(username) {
+    const { data } = await axios (APIURL + username + '/repos?sort=created');
+    addReposToCard(data);
+}
+
+function addReposToCard(repos) {
+  const reposEl = document.getElementById('repos');
+
+  repos.forEach(repo => {
+    const repoLink = document.createElement('a');
+    repoLink.classList.add('repo');
+    repoLink.href = repo.html_url;
+    repoLink.target = '_blank';
+    repoLink.innerText = repo.name;
+
+    reposEl.appendChild(repoLink)
+  })
 }
 
 form.addEventListener('submit', (e) => {
