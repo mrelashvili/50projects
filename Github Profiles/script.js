@@ -6,6 +6,7 @@ const main = document.getElementById('main');
 const APIURL = 'https://api.github.com/users/';
 
 function createUserCard(user) {
+  const userBio = user.bio ? `<p>${user.bio}</p>` : ''
   const cardHTML = `
   <div class="card">
       <div>
@@ -13,7 +14,7 @@ function createUserCard(user) {
       </div>
       <div class="user-info">
         <h2>${user.login}</h2>
-        <p>${user.bio}</p>
+        <p>${userBio}</p>
 
         <ul>
           <li><strong>${user.followers}</strong>Followers</li>
@@ -49,7 +50,7 @@ async function getRepos(username) {
 function addReposToCard(repos) {
   const reposEl = document.getElementById('repos');
 
-  repos.forEach(repo => {
+  repos.slice(0,5).forEach(repo => {
     const repoLink = document.createElement('a');
     repoLink.classList.add('repo');
     repoLink.href = repo.html_url;
