@@ -40,4 +40,6 @@ function createHart(e) {
 
   e.target.appendChild(heart);
   times.innerHTML = ++timesClicked;
+
+  setTimeout(() => heart.remove(), 1000);
 }
